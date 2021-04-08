@@ -68,7 +68,7 @@ class EditorVideo extends Programa {
     setTimeLine(timeline:number){
         this.timeline = timeline;
     }
-    //observamos como si heredo las propiedades.
+    //observamos como si heredo las propiedades..
     getAllData():string {
         return this.getNombre() + " - " + this.getVersion() + " - " + this.getTimeLine()
     }
