@@ -72,6 +72,7 @@ var Programa = /** @class */ (function () {
 }());
 var programa = new Programa();
 programa.lanzamiento();
+// Heredamos las propiedades de la clase Programa a la clase hija EditorVideo
 var EditorVideo = /** @class */ (function (_super) {
     __extends(EditorVideo, _super);
     function EditorVideo() {
@@ -84,6 +85,7 @@ var EditorVideo = /** @class */ (function (_super) {
     EditorVideo.prototype.setTimeLine = function (timeline) {
         this.timeline = timeline;
     };
+    //observamos como si heredo las propiedades.
     EditorVideo.prototype.getAllData = function () {
         return this.getNombre() + " - " + this.getVersion() + " - " + this.getTimeLine();
     };

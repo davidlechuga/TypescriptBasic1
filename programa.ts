@@ -55,6 +55,7 @@ class Programa  {
 var programa = new Programa(); 
 programa.lanzamiento();
 
+// Heredamos las propiedades de la clase Programa a la clase hija EditorVideo
 class EditorVideo extends Programa {
     //Propiedades
     public timeline:number;
@@ -67,7 +68,7 @@ class EditorVideo extends Programa {
     setTimeLine(timeline:number){
         this.timeline = timeline;
     }
-
+    //observamos como si heredo las propiedades.
     getAllData():string {
         return this.getNombre() + " - " + this.getVersion() + " - " + this.getTimeLine()
     }
