@@ -13,6 +13,42 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+// Uso de modulos,  un módulo sirve para encapsular código y distribuye la lógica de una aplicación en partes estancas, reutilizables y articulables.
+var Tienda;
+(function (Tienda) {
+    var Ropa = /** @class */ (function () {
+        function Ropa(titulo) {
+            this.titulo = titulo;
+            alert(titulo);
+        }
+        return Ropa;
+    }());
+    Tienda.Ropa = Ropa;
+    var Informatica = /** @class */ (function () {
+        function Informatica(titulo) {
+            this.titulo = titulo;
+            alert('Tienda de tecnología ' + titulo);
+        }
+        return Informatica;
+    }());
+    Tienda.Informatica = Informatica;
+})(Tienda || (Tienda = {}));
+var Informatica = Tienda.Informatica;
+var carga_informatica = new Informatica('supertienda');
+// creacion de un decorador nos permite añadir anotaciones y metadatos o cambiar el comportamiento de clases, propiedades, métodos, parámetros y accesors.
+function arranque(lanzar) {
+    return function (target) {
+        target.prototype.lanzamiento = function () {
+            alert(lanzar);
+        };
+    };
+}
 var Programa = /** @class */ (function () {
     function Programa() {
     }
@@ -29,8 +65,13 @@ var Programa = /** @class */ (function () {
     Programa.prototype.setVersion = function (version) {
         this.version = version;
     };
+    Programa = __decorate([
+        arranque('mi primer lanzamiento')
+    ], Programa);
     return Programa;
 }());
+var programa = new Programa();
+programa.lanzamiento();
 var EditorVideo = /** @class */ (function (_super) {
     __extends(EditorVideo, _super);
     function EditorVideo() {
@@ -58,5 +99,28 @@ console.log(editor.getAllData());
 var programas = [];
 function guardar() {
     //en concreto le decimos que es un input con id = nombre
-    var nombre = document.getElementById("nombre");
+    var nombre = document.getElementById("nombre").value.toString();
+    var programa = new Programa();
+    programa.setNombre(nombre);
+    programa.setVersion(1);
+    programas.push(programa);
+    var list = "";
+    for (var i = 0; i < programas.length; i++) {
+        list = list + "<li>" + programas[i].getNombre() + "</li>";
+    }
+    var listado = document.getElementById("listado");
+    listado.innerHTML = list;
+    document.getElementById("nombre").value = "";
 }
+setInterval(function () {
+    console.log("Hola");
+}, 1000);
+var frutas = [
+    "manzana",
+    "naranja",
+    "platano"
+];
+var recorrer = frutas.map(function (fruta) {
+    console.log(fruta);
+    console.log(fruta.length);
+});

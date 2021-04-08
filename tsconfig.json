@@ -5,7 +5,9 @@
       "removeComments": true,
       "preserveConstEnums": true,
       "sourceMap": true,
-      "outDir": "../Module1"
+      "outDir": "../Module1",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true
     },
     "files": [
       "prueba.ts",
