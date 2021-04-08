@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "outDir": "../Module1"
+    },
+    "files": [
+      "prueba.ts",
+      "coche.ts",
+      "programa.ts"
+    ]
+    }
